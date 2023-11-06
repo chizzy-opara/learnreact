@@ -1,59 +1,44 @@
-// Bootstrap CSS to apply the styles
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import Name from "./Name";
+import Description from "./Description";
+import Image from "./Image";
+import Price from "./Price";
+import Product from "./product"; // Import the Product object
+import "./App.css";
 
 const App = () => {
+  const firstName = "Chizzy";
+
   return (
     <>
       <div className="App">
-        {/* Bootstrap Navbar component */}
         <Navbar bg="light" expand="lg">
           <Container>
-            <Navbar.Brand>GOMYCODE REACT JS CHECKPOINT</Navbar.Brand>
+            <Navbar.Brand>
+              GoMyCode JSX And React Components Checkpoint
+            </Navbar.Brand>
           </Container>
         </Navbar>
 
         <Container>
-          {/* Heading using an h1 element */}
-          <h1 className="mt-5">Welcome to My React App</h1>
-
-          <Row className="mt-4">
-            {/* A Row to contain three Col components */}
-            <Col>
-              {/* Bootstrap Card component for the card 1*/}
-              <Card>
-                <Card.Body>
-                  <Card.Title>Card 1</Card.Title>
-                  <Card.Text>This is the first card.</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-
-            <Col>
-              {/* Bootstrap Card component for the card 2*/}
-              <Card>
-                <Card.Body>
-                  <Card.Title>Card 2</Card.Title>
-                  <Card.Text>This is the second card.</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-
-            <Col>
-              {/* Bootstrap Card component for the card 3*/}
-              <Card>
-                <Card.Body>
-                  <Card.Title>Card 3</Card.Title>
-                  <Card.Text>This is the third card.</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
+          <h1 className="mt-5">Product Category</h1>
+          <Card style={{ width: "18rem" }}>
+            <Image image={Product.image} />
+            <Card.Body>
+              <Card.Title>
+                <Name name={Product.name} />
+              </Card.Title>
+              <Card.Text>
+                <Price price={Product.price} />
+                <Description description={Product.description} />
+              </Card.Text>
+            </Card.Body>
+          </Card>
+          <p>Hello, {firstName ? firstName : "there!"} 👋</p>
+          {firstName && <Image image={Product.image} />}
         </Container>
       </div>
     </>
